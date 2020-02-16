@@ -24,7 +24,7 @@ public class Client : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         m_NetworkAdapter.ScheduleUpdate();
 
@@ -36,7 +36,7 @@ public class Client : MonoBehaviour
         {
             byte[] data = System.BitConverter.GetBytes(i);
             i++;
-            m_NetworkAdapter.SendData(data, true);
+            m_NetworkAdapter.SendData(data, false);
         }
     }
 

@@ -28,7 +28,7 @@ public class Server : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         m_DefaultNetworkAdapter.ScheduleUpdate();
 

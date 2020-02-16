@@ -16,9 +16,9 @@ public class NetworkAdapter
     public NetworkAdapter()
     {
         this.m_Connection = default;
-        m_Driver = new UdpNetworkDriver(new SimulatorUtility.Parameters { MaxPacketSize = 256, MaxPacketCount = 30, PacketDelayMs = 100, PacketDropPercentage = 50});
-        m_ReliablePipeline = m_Driver.CreatePipeline(typeof(UnreliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
-        m_UnreliablePipeline = m_Driver.CreatePipeline(typeof(ReliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
+        m_Driver = new UdpNetworkDriver(new SimulatorUtility.Parameters { MaxPacketSize = 256, MaxPacketCount = 30, PacketDelayMs = 10, PacketDropPercentage = 20});
+        m_ReliablePipeline = m_Driver.CreatePipeline(typeof(ReliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
+        m_UnreliablePipeline = m_Driver.CreatePipeline(typeof(UnreliableSequencedPipelineStage), typeof(SimulatorPipelineStage));
     }
 
     public NetworkAdapter(NetworkConnection connection, UdpNetworkDriver driver, NetworkPipeline reliablePipeline, NetworkPipeline unreliablePipeline)
