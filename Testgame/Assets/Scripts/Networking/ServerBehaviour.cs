@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Networking.Transport;
 using UnityEngine;
 
-public class Server : MonoBehaviour
+public class ServerBehaviour : MonoBehaviour
 {
     private NetworkAdapter m_DefaultNetworkAdapter;
     private Dictionary<int, NetworkAdapter> m_Clients;

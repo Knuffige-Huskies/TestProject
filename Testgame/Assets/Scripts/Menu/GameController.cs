@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    private Server m_Server;
+    private ServerBehaviour m_Server;
     private Client m_Client;
     private static GameController m_Instance;
     private bool m_IsServer;

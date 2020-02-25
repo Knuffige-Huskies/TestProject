@@ -50,6 +50,15 @@ public static class Converter
         pointerAfter = pointer;
     }
 
+    public static void AddTransformPosOrRot(byte[] data, int pointer, Vector3 value, out byte[] dataOut, out int pointerAfter)
+    {
+        Converter.AddFloat(data, pointer, value.x, out data, out pointer);
+        Converter.AddFloat(data, pointer, value.y, out data, out pointer);
+        Converter.AddFloat(data, pointer, value.z, out data, out pointer);
+        dataOut = data;
+        pointerAfter = pointer;
+    }
+
     public static int GetInteger32(byte[] data, int pointer, out int pointerAfter)
     {
         int value = BitConverter.ToInt32(data, pointer);
@@ -107,6 +116,16 @@ public static class Converter
         pointerAfter = pointer;
 
         return new Quaternion(x, y, z, w);
+    }
+
+    public static Vector3 GetTransformPosOrRot(byte[] data, int pointer, out int pointerAfter)
+    {
+        float x = Converter.GetFloat(data, pointer, out pointer);
+        float y = Converter.GetFloat(data, pointer, out pointer);
+        float z = Converter.GetFloat(data, pointer, out pointer);
+        pointerAfter = pointer;
+
+        return new Vector3(x,y,z);
     }
 
     public static List<int> GetSerializableState(byte[] data, int pointer, out int pointerOut)
